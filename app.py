@@ -2,16 +2,18 @@ import cv2 as cv2
 import numpy as np
 import tensorflow as tf
 import math
-import os.path
+import os
 import json
 from flask import Flask,request,Response
+from flask_cors import CORS
 import uuid
 #import pyrebase
 
 app = Flask(__name__)
-@app.route("/")
+CORS(app)
+port = int(os.environ.get("PORT", 5000))
 
-def Detect(image):
+def detect(image):
     interpreter = tf.lite.Interpreter(model_path='lite-model_movenet_singlepose_thunder_3.tflite')
     interpreter.allocate_tensors()
     #membacagambar
@@ -135,19 +137,33 @@ def Detect(image):
     #savefile
     path_file=('static/%s.jpg' %uuid.uuid4().hex)
     cv2.imwrite(path_file,image)
+
+    data = {
+        "bahu": ld,
+        "tangan": pt,
+        "badan": tb,
+        "ukuran": ukuran,
+        "gambar": path_file
+    }
+
     value = {
         "success" : True,
-        "message" : Hasil_Pengukuran,
-        "image" : path_file}
+        "data" : data
+    }
     return json.dumps(value)
     
         
 @app.route('/api/upload',methods=['POST'])
 def upload():
     image = cv2.imdecode(np.fromstring(request.files['imagedata'].read(),np.uint8), cv2.IMREAD_UNCHANGED)
-    img_processed = Detect(image)
+    img_processed = detect(image)
     return Response(response=img_processed, status=200,mimetype="application/json")
 
-app.run(host="0.0.0.0", port=5000)
+@app.route("/")
+def index():
+    return "<h1>Welcome to our server !!</h1>"
+
+if __name__ == '__main__':
+    app.run(threaded=True, port=port)
 
 #diclient akan membaca ip laptop yang tergantung wifi 
