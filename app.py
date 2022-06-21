@@ -75,11 +75,11 @@ def detect(image):
 
     #hitungskala
     #menghitung skala gambar tinggi
-    skalaheight=(((height*200)/220)/200)
+    skalaheight=(((height*200)/256)/200)
 
 
     #menghitung skala gambar lebar
-    skalawidht=(((width*200)/180)/200)
+    skalawidht=(((width*200)/140)/200)
 
     #perhitungan Euclidean Distance
     #hitung bahu
