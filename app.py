@@ -131,8 +131,7 @@ def detect(image):
     
     Hasil_Pengukuran=[ ld,pt,
                     tb,ukuran]
-    cm="cm"
-        
+
     print (Hasil_Pengukuran)
         
     #savefile
@@ -141,9 +140,9 @@ def detect(image):
    
 
     data = {
-        "bahu": ld+cm,
-        "tangan": pt+cm,
-        "badan": tb+cm,
+        "bahu": ld,
+        "tangan": pt,
+        "badan": tb,
         "ukuran": ukuran,
         "gambar": path_file
     }
