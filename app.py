@@ -75,7 +75,7 @@ def detect(image):
 
     #hitungskala
     #menghitung skala gambar tinggi
-    skalaheight=(((height*200)/265)/200)
+    skalaheight=(((height*200)/235)/200)
 
 
     #menghitung skala gambar lebar
