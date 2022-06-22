@@ -137,11 +137,12 @@ def detect(image):
     #savefile
     path_file=('static/%s.jpg' %uuid.uuid4().hex)
     cv2.imwrite(path_file,image)
+    cm="cm"
 
     data = {
-        "bahu": ld,
-        "tangan": pt,
-        "badan": tb,
+        "bahu": ld+cm,
+        "tangan": pt+cm,
+        "badan": tb+cm,
         "ukuran": ukuran,
         "gambar": path_file
     }
