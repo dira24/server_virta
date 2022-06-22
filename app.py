@@ -131,13 +131,14 @@ def detect(image):
     
     Hasil_Pengukuran=[ ld,pt,
                     tb,ukuran]
-
+    cm="cm"
+        
     print (Hasil_Pengukuran)
         
     #savefile
     path_file=('static/%s.jpg' %uuid.uuid4().hex)
     cv2.imwrite(path_file,image)
-    cm="cm"
+   
 
     data = {
         "bahu": ld+cm,
