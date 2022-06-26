@@ -7,7 +7,6 @@ import json
 from flask import Flask,request,Response
 from flask_cors import CORS
 import uuid
-#import pyrebase
 
 app = Flask(__name__)
 CORS(app)
@@ -101,12 +100,6 @@ def detect(image):
     badan22=math.pow(shaped[16][0]-shaped[6][0],2)
     Panjang_badan1=math.sqrt(badan11 + badan22)
     tb= int (Panjang_badan1/skalaheight)
-
-    #Harusnya di buat Array
-    #print ("Panjang Bahu", (int(ld)) ,"cm")
-    #print ("Panjang Tangan", (int(pt)) ,"cm")
-    #print ("Panjang Badan", (int(tb)) ,"cm")
-    #print ("Lingkar Badan", (int(lb)) ,"cm")
 
     i=0
     while i==0:
