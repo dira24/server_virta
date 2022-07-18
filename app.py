@@ -85,21 +85,21 @@ def detect(image):
     bahu1=math.pow(shaped[5][1]-shaped[6][1],2)
     bahu2=math.pow(shaped[5][0]-shaped[6][0],2)
     Panjang_Bahu=math.sqrt(bahu1 + bahu2)
-    ld= int(Panjang_Bahu/skalawidht)
+    ld= int((Panjang_Bahu/skalawidht)+20)
     
 
     #hitung tangan kanan
     tangan1=math.pow(shaped[10][1]-shaped[6][1],2)
     tangan2=math.pow(shaped[10][0]-shaped[6][0],2)
     Panjang_Tangan=math.sqrt(tangan1 + tangan2)
-    pt= int(Panjang_Tangan/skalaheight)
+    pt= int((Panjang_Tangan/skalaheight) + 10)
     
 
     #huitung panjang badan kanan
     badan11=math.pow(shaped[16][1]-shaped[6][1],2)
     badan22=math.pow(shaped[16][0]-shaped[6][0],2)
     Panjang_badan1=math.sqrt(badan11 + badan22)
-    tb= int (Panjang_badan1/skalaheight)
+    tb= int ((Panjang_badan1/skalaheight) + 10)
 
     i=0
     while i==0:
