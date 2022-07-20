@@ -101,25 +101,18 @@ def detect(image):
     Panjang_badan1=math.sqrt(badan11 + badan22)
     tb= int ((Panjang_badan1/skalaheight) + 10)
 
-    i=0
-    while i==0:
-        
-        if ld <= 36 and tb<=133 and pt<=56:
-            ukuran = "S"
-            #print("UKURAN GAMIS S")
-            break
-        if ld <= 38 and tb<=136 and pt<=58:
-            ukuran = "M"
-            #print("UKURAN GAMIS M")
-            break
-        if ld <= 40 and tb<=140 and pt<=58:
-            ukuran = "L"
-           #print("UKURAN GAMIS L")
-            break
-        if ld <= 42 and tb<=142 and pt<=59:
-            ukuran = "XL"
-            #print("UKURAN GAMIS XL")
-            break
+    if pt<=55 and ld <= 35 and tb<=133:
+        ukuran = "S"
+        #print("UKURAN GAMIS S")
+    elif pt<=56 and ld <= 38 and tb<=136 :
+        ukuran = "M"
+        #print("UKURAN GAMIS M")
+    elif pt<=58 and ld <= 40 and tb<=140 :
+        ukuran = "L"
+        #print("UKURAN GAMIS L")
+    else:
+        ukuran = "XL"
+        #print("UKURAN GAMIS XL")
 
     
     Hasil_Pengukuran=[ ld,pt,
